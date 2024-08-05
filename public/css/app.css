@@ -1,0 +1,37 @@
+
+
+.modal-content.custom-border {
+  border-width: 4px ;
+  border-color: black; 
+}
+.modal-content.custom-width {
+  max-width: 800px; 
+}
+.modal-content #exampleModalLabel{
+    color:#0169d8;
+
+}
+.modal-header {
+  position: relative;
+  padding-top: 20px; 
+}
+.arriba img {
+  position:absolute;
+  left:76%;
+  top: -8px; 
+  width: 150px; 
+  height: 150px; 
+  border-radius: 50%;
+}
+.modal-dialog.custom-width {
+  max-width: 50%; 
+ 
+}
+.modal-body .form-row {
+  margin-bottom: 1rem;
+}
+.modal-body #address{
+  margin-bottom: 1rem;
+  height: 70px;
+}
+
