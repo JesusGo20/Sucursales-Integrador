@@ -12,7 +12,8 @@
     },
     "dependencies": {
         "jquery": "^3.7.1",
-        "sweetalert": "^2.1.2"
+        "sweetalert": "^2.1.2",
+        "select2": "~4.0"
     },
     "name": "https---github.com-jordancrack-proyectoofi",
     "version": "1.0.0",

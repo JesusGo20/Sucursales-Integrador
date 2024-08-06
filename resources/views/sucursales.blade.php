@@ -469,38 +469,40 @@
                             <img src="data:image/png;base64, {{ $sucursal->foto }}" class="card-img-top"
                                 alt="">
                             <div class="card-body">
-                                <h5 class="card-title">{{ $sucursal->nomSucursal }}</h5>
-                                <p class="card-text">{{ $sucursal->lugar }}</p>
-                                <p class="card-text"><img style="width: 20px; height: 20px;" src="/img/location.png"
-                                        alt=""> {{ $sucursal->direccion }}</p>
-                                <p class="card-text"><img style="width: 20px; height: 20px;" src="/img/email.png"
-                                        alt=""> {{ $sucursal->email }}</p>
-                                <p class="card-text"><img style="width: 20px; height: 20px;" src="/img/telephone.png"
-                                        alt=""> {{ $sucursal->telefono }}</p>
-                                <p class="card-text"><img style="width: 20px; height: 20px;" src="/img/whatsapp.png"
-                                        alt=""> {{ $sucursal->whatsApp }}</p>
+                                <div style="width:275px; height:575px;">
+                                    <h5 class="card-title">{{ $sucursal->nomSucursal }}</h5>
+                                    <p class="card-text">{{ $sucursal->lugar }}</p>
+                                    <p class="card-text"><img style="width: 20px; height: 20px;"
+                                            src="/img/location.png" alt=""> {{ $sucursal->direccion }}</p>
+                                    <p class="card-text"><img style="width: 20px; height: 20px;" src="/img/email.png"
+                                            alt=""> {{ $sucursal->email }}</p>
+                                    <p class="card-text"><img style="width: 20px; height: 20px;"
+                                            src="/img/telephone.png" alt=""> {{ $sucursal->telefono }}</p>
+                                    <p class="card-text"><img style="width: 20px; height: 20px;"
+                                            src="/img/whatsapp.png" alt=""> {{ $sucursal->whatsApp }}</p>
 
-                                <p class="card-text"><img style="width: 20px; height: 20px;" src="/img/person.png"
-                                        alt="">{{ $sucursal->encargados->nombre }}
-                                    {{ $sucursal->encargados->apellido1 }} {{ $sucursal->encargados->apellido2 }}
-                                <ul>
-                                    <li>{{ $sucursal->encargados->telefono }}</li>
-                                    <li>{{ $sucursal->encargados->email }}</li>
-                                </ul>
-                                </p>
+                                    <p class="card-text"><img style="width: 20px; height: 20px;"
+                                            src="/img/person.png" alt="">{{ $sucursal->encargados->nombre }}
+                                        {{ $sucursal->encargados->apellido1 }} {{ $sucursal->encargados->apellido2 }}
+                                    <ul>
+                                        <li>{{ $sucursal->encargados->telefono }}</li>
+                                        <li>{{ $sucursal->encargados->email }}</li>
+                                    </ul>
+                                    </p>
 
-                                <p class="card-text"><img style="width: 20px; height: 20px;" src="/img/schedule.png"
-                                        alt="">
-                                    Lunes-Sabado:{{ $sucursal->horaApertura }}-{{ $sucursal->horaCierre }}</p>
+                                    <p class="card-text"><img style="width: 20px; height: 20px;"
+                                            src="/img/schedule.png" alt="">
+                                        Lunes-Sabado:{{ $sucursal->horaApertura }}-{{ $sucursal->horaCierre }}</p>
 
-                                <p class="card-text {{ $sucursal->estado ? 'text-success' : 'text-danger' }}">
-                                    Sucursal: {{ $sucursal->estado ? 'Activa' : 'Inactiva' }}</p>
+                                    <p class="card-text {{ $sucursal->estado ? 'text-success' : 'text-danger' }}">
+                                        Sucursal: {{ $sucursal->estado ? 'Activa' : 'Inactiva' }}</p>
 
-                                <label class="card-text">Especialidades de la sucursal</label>
-                                <div style="width:265px; height:75px;">
-                                    @foreach ($sucursal->especialidades as $especialidad)
-                                        <p class="badge bg-primary">{{ $especialidad->nombre }}</p>
-                                    @endforeach
+                                    <label class="card-text">Especialidades de la sucursal</label>
+                                    <div style="width:265px; height:75px;">
+                                        @foreach ($sucursal->especialidades as $especialidad)
+                                            <p class="badge bg-primary">{{ $especialidad->nombre }}</p>
+                                        @endforeach
+                                    </div>
                                 </div>
                             </div>
                             <div class="">
