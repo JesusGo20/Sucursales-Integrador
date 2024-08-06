@@ -6,15 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Sucursales</title>
+
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
     @vite('resources/js/app.js')
+
 </head>
 
 <body>
@@ -196,7 +204,8 @@
                                                 id="especialidadeseditar" class="form-control select" multiple
                                                 required>
                                                 @foreach ($especialidades as $especialidad)
-                                                    <option value="{{ $especialidad->id }}">{{ $especialidad->nombre }}
+                                                    <option class="opcion" value="{{ $especialidad->id }}">
+                                                        {{ $especialidad->nombre }}
                                                     </option>
                                                 @endforeach
                                             </select>
@@ -401,6 +410,24 @@
                         document.getElementById('estadoEdit').value = objeto.estado;
                         document.getElementById('miVariableOculta').value = objeto.id;
 
+
+                        const opciones = document.querySelectorAll('.opcion');
+
+                        //Este forEach es para deseleccionar todas las opciones
+                        opciones.forEach(opcion => {
+                            opcion.selected = false;
+                        });
+
+                        //Este forEach es para seleccionar las especialidades que ya tiene la sucursal
+                        opciones.forEach(opcion => {
+                            if (objeto.especialidades.find(especialidad => especialidad.id == opcion.value)) {
+                                opcion.selected = true;
+                            }
+                        });
+
+                        //Esta linea es para que se actualice el select2
+                        $('#especialidadeseditar').trigger('change');
+
                         var myModal = new bootstrap.Modal(document.getElementById('modalFormEdit'));
                         myModal.show();
                     }
@@ -428,8 +455,6 @@
 
                         button.textContent = showActivas ? 'Mostrar Inactivas' : 'Mostrar Activas';
                     }
-
-
 
                     document.addEventListener('DOMContentLoaded', function() {
                         verActivasVerInactivas();
